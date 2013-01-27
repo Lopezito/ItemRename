@@ -1,19 +1,33 @@
 name: ItemRename
 author: Lopezito
-version: 1.0
+version: 2.0
 description: Rename Items
 main: com.gmail.lopezitospriter.ItemName.main
 commands:
+  itemrename:
+    description: Show list of commands of ItemRename
+    usage: /itemrename
+    permission: itemrename.rename
   rename:
-    description: Rename Items
-    usage: /rename iditem cantidad color newname
+    description: Rename Items without enchantments
+    usage: /rename iditem amount color newname
     permission: itemrename.rename
     aliases: [rn, xre]
   renamee:
-    description: Rename Items
-    usage: /renamee iditem cantidad color newname
+    description: Rename Items with enchantments
+    usage: /renamee iditem amount color enchantment newname
     permission: itemrename.renamee
     aliases: [rne, xree]
+  renamehand:
+    description: Rename the item on your hand without enchantments
+    usage: /renamehand color newname
+    permission: itemrename.renamehand
+    aliases: [rnh, xreh]
+  renameehand:
+    description: Rename the item on your hand with enchantments
+    usage: /renameehand color enchantment newname
+    permission: itemrename.renameehand
+    aliases: [rneh, xreeh]
 permissions:
     itemrename.*:
         description: All commands of plugin
@@ -21,9 +35,17 @@ permissions:
         children:
             xminecraft.rename: true
             xminecraft.renamee: true
+            xminecraft.renamehand: true
+            xminecraft.renameehand: true
     itemrename.rename:
-        description: Can use /rename
+        description: Can use /rename and /itemrename
         default: op
     itemrename.renamee:
         description: Can use /renamee
+        default: op
+    itemrename.renamehand:
+        description: Can use /renamehand
+        default: op
+    itemrename.renameehand:
+        description: Can use /renameehand
         default: op
